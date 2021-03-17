@@ -1,0 +1,10 @@
+.hasError{
+    color: red;
+}
+
+
+.image-size {
+    width:100px;
+    height: 150px;
+    float:inline;
+}
