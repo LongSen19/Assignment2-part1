@@ -6,6 +6,7 @@ const app = Vue.createApp({
             result: null,
             books: [],
             startIndex: 0,
+            oldKeyword: ''
         }
     },
     methods: {
@@ -15,6 +16,10 @@ const app = Vue.createApp({
                 .then(json => {
                     this.result = json
                     console.log(this.result)
+                    if(this.keyword != this.oldKeyword){
+                        this.oldKeyword = this.keyword
+                        this.startIndex = 0
+                    }
                 }
                 )
         },
@@ -30,6 +35,5 @@ const app = Vue.createApp({
                 this.searchGoogleBooks()
             }
         }
-        
     }
 })
