@@ -26,7 +26,7 @@ app.component('book-display', {
     methods: {
         getImage() {
             if(this.bookObj != null) {
-                if (this.bookObj.volumeInfo.imageLinks['thumbnail'] != null) {
+                if (this.bookObj.volumeInfo.imageLinks != null) {
                     return this.bookObj.volumeInfo.imageLinks['thumbnail']
                 }
             }
