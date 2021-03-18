@@ -34,16 +34,16 @@
                 </fieldset>
             </form>
             <div class="container row form-group">
-                <div class="row col-sm-5" v-if="result != null">
+                <!-- <div class="row col-sm-5" v-if="result != null">
                     Found {{result.totalItems}}
-                </div>
+                </div> -->
                 <div class="row">
                     <book-display v-if="result != null" v-for="(book, index) in result.items" :key="book.id" 
                     :book="JSON.stringify(book)"></book-display>
                 </div>
             </div>
 
-            <div class="row col-sm-5" v-if="result != null">
+            <div v-if="result != null">
                 <pagination :start="startIndex" @next-page="nextPage" @pre-page="prePage"></pagination>
             </div>
         </div>

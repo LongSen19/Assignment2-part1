@@ -6,16 +6,15 @@ app.component('pagination',{
             // default: 0
         }
     },
-    data() {
-        return {
-            page: 0
-        }
-    },
-    template: 
+   template: 
         /*html*/
         `
-        <button type="button" class="but" @click="pre" v-if="start > 0">Pervious</button>
-        <button type="button" class="but" @click="next">Next</button>
+        <div class="box">
+        <div class="center">
+        <button type="button" class="pagination-button" @click="pre" v-if="start > 0">Pervious</button>
+        <button type="button" class="pagination-button" @click="next">Next</button>
+        </div>
+        </div>
         `,
     methods: {
         next() {
@@ -25,13 +24,4 @@ app.component('pagination',{
             this.$emit('pre-page')
         }
     },
-    computed: {
-        firstPage() {
-            console.log(this.page)
-            if (this.page == 0) {
-                return true
-            }
-            return false
-        }
-    }
 })
