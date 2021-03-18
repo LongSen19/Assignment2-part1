@@ -13,12 +13,12 @@ app.component('book-display', {
         <img :src="this.getImage()" class="image-size link">
         <p class="padding-title">{{this.bookObj.volumeInfo.title}}
         </p></a>
-        <li class="list-group-item"> Author(s): {{this.authors}}</li>
-        <li class="list-group-item">Publisher: {{this.publisher}}</li>
-        <li class="list-group-item">Published Date: {{this.bookObj.volumeInfo.publishedDate}}</li>
-        <li class="list-group-item"> Categories: {{this.categories}}</li>
-        <li class="list-group-item"> Rating: {{this.rating}}</li>
-        <li class="list-group-item"> Pages: {{this.pageCount}}</li>
+        <li class="list-group-item" v-if="this.authors != ''"> Author(s): {{this.authors}}</li>
+        <li class="list-group-item" v-if="this.publisher != ''">Publisher: {{this.publisher}}</li>
+        <li class="list-group-item" v-if="this.publishedDate != ''">Published Date: {{this.publishedDate}}</li>
+        <li class="list-group-item" v-if="this.categories != ''"> Categories: {{this.categories}}</li>
+        <li class="list-group-item" v-if="this.rating != ''"> Rating: {{this.rating}}</li>
+        <li class="list-group-item" v-if="this.publisher != ''"> Pages: {{this.pageCount}}</li>
 
 
 
@@ -53,10 +53,10 @@ app.component('book-display', {
                     }
                 }
             }
-            if (authorList == '')
-            {
-                authorList += "Not Found"
-            }
+            // if (authorList == '')
+            // {
+            //     authorList += "Not Found"
+            // }
             return authorList
             }
         },
@@ -65,15 +65,15 @@ app.component('book-display', {
                 // console.log(this.bookObj.volumeInfo.imageLinks['thumbnail'])
                 if(this.bookObj.volumeInfo.publisher != null) 
                     return this.bookObj.volumeInfo.publisher
-                return "Not Found"
+                return ''
             }
         },
         publishedDate() {
             if(this.bookObj != null) {
                 // console.log(this.bookObj.volumeInfo.imageLinks['thumbnail'])
-                if(this.bookObj.volumeInfo.publisher != null) 
+                if(this.bookObj.volumeInfo.publishedDate != null) 
                     return this.bookObj.volumeInfo.publishedDate
-                return "Not Found"
+                return ''
             } 
         },
         rating() {
@@ -81,7 +81,7 @@ app.component('book-display', {
                 // console.log(this.bookObj.volumeInfo.imageLinks['thumbnail'])
                 if(this.bookObj.volumeInfo.averageRating != null) 
                     return this.bookObj.volumeInfo.averageRating
-                return "Not Found"
+                return ''
             }  
         },
         pageCount() {
@@ -89,7 +89,7 @@ app.component('book-display', {
                 // console.log(this.bookObj.volumeInfo.imageLinks['thumbnail'])
                 if(this.bookObj.volumeInfo.pageCount != null) 
                     return this.bookObj.volumeInfo.pageCount
-                return "Not Found"
+                return ''
             }  
         },
         categories() {
@@ -103,10 +103,10 @@ app.component('book-display', {
                     }
                 }
             }
-            if (categoryList == '')
-            {
-                categoryList += "Not Found"
-            }
+            // if (categoryList == '')
+            // {
+            //     categoryList += "Not Found"
+            // }
             return categoryList
             }
         }
