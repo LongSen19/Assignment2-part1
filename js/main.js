@@ -15,7 +15,8 @@ const app = Vue.createApp({
                 .then(response => response.json())
                 .then(json => {
                     this.result = json
-                    console.log(this.result)
+                    //console.log(this.result)
+                    console.log('https://www.googleapis.com/books/v1/volumes?&q=' + this.keyword + "&startIndex=" + this.startIndex + "&maxResults=20")
                     if(this.keyword != this.oldKeyword){
                         this.oldKeyword = this.keyword
                         this.startIndex = 0
