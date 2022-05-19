@@ -20,6 +20,7 @@ const app = Vue.createApp({
                     if(this.keyword != this.oldKeyword){
                         this.oldKeyword = this.keyword
                         this.startIndex = 0
+                        console.log("commit1")
                     }
                 }
                 )
