@@ -36,7 +36,6 @@ app.component('book-display', {
         bookObj() {
             if(this.book != null){
                 let abook = JSON.parse(this.book);
-                console.log('commit2')
                 return abook
             }
                 // return JSON.parse(this.book);
